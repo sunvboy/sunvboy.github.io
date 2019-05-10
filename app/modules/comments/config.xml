@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<permissions>
+		
+	</permissions>
+	<permissions>
+		<title>Comment[Bình luận]</title>
+		<item>
+			<param>comments/backend/comments/view</param>
+			<description>Xem</description>
+		</item>
+		<item>
+			<param>comments/backend/comments/create</param>
+			<description>Thêm</description>
+		</item>
+		<item>
+			<param>comments/backend/comments/update</param>
+			<description>Sửa</description>
+		</item>
+		<item>
+			<param>comments/backend/comments/delete</param>
+			<description>Xóa</description>
+		</item>
+		<item>
+			<param>comments/backend/comments/read</param>
+			<description>Đọc</description>
+		</item>
+	</permissions>
+	<permissions>
+	</permissions>
+</module>
