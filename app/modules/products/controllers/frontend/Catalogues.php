@@ -51,7 +51,7 @@ class Catalogues extends FC_Controller
             $config['suffix'] = $this->config->item('url_suffix') . (!empty($_SERVER['QUERY_STRING']) ? ('?' . $_SERVER['QUERY_STRING']) : '');
             $config['prefix'] = 'trang-';
             $config['first_url'] = $config['base_url'] . $config['suffix'];
-            $config['per_page'] = 10;
+            $config['per_page'] = 1000;
             $config['uri_segment'] = 2;
             $config['use_page_numbers'] = TRUE;
             $config['full_tag_open'] = '<ul class="pull-right pagination text-center" style="display: flex;justify-content: center">';
@@ -128,12 +128,13 @@ class Catalogues extends FC_Controller
 //
 //            }
 //        }
-        if ($data['DetailCatalogues']['rgt'] - $data['DetailCatalogues']['lft'] > 1 && $data['DetailCatalogues']['parentid']==0) {
-            $data['template'] = 'products/frontend/catalogues/view';
-        } else {
-            $data['template'] = 'products/frontend/catalogues/child';
+//        if ($data['DetailCatalogues']['rgt'] - $data['DetailCatalogues']['lft'] > 1 && $data['DetailCatalogues']['parentid']==0) {
+//        } else {
+//            $data['template'] = 'products/frontend/catalogues/child';
+//
+//        }
+        $data['template'] = 'products/frontend/catalogues/view';
 
-        }
         $this->load->view('homepage/frontend/layouts/home', isset($data) ? $data : NULL);
     }
 }

@@ -17,7 +17,7 @@ if (isset($auth) && !empty($auth)) {
     <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
 
-            <li><a href="<?php echo site_url('customers/backend/customers/sitemap'); ?>">Tạo sitemap</a></li>
+            <li class="hide"><a href="<?php echo site_url('customers/backend/customers/sitemap'); ?>">Tạo sitemap</a></li>
 
 
             <li class="language-header <?php echo(($auth['lang'] == 'vietnamese') ? 'active-lang' : '') ?>" data-lang="vietnamese">

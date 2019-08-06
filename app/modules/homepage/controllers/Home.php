@@ -80,109 +80,63 @@ class Home extends FC_Controller
 //            'order_by' => 'order asc, id desc',
 //        ));
         //var_dump($data['sanphambanchay'] );die;
-//        $data['cackhoahoc'] = $this->FrontendArticles_Model->ReadByCondition(array(
-//            'select' => 'id, title, slug, canonical,description,images,content,albums',
-//            'table' => 'articles',
-//            'where' => array('ishome' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
-//            'limit' => 6,
-//            'order_by' => 'order asc, id desc',
-//        ));
-        $data['thanhtichcao'] = $this->FrontendArticles_Model->ReadByCondition(array(
-            'select' => 'id, title, slug, canonical,description,images,albums',
+        $data['khonggiansong'] = $this->FrontendArticles_Model->ReadByCondition(array(
+            'select' => 'id, title, slug, canonical,description,images,content,albums',
             'table' => 'articles',
             'where' => array('ishome' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
             'limit' => 1,
             'order_by' => 'order asc, id desc',
         ));
-        $data['phuhuynh'] = $this->FrontendArticles_Model->ReadByCondition(array(
-            'select' => 'id, title, slug, canonical,description,images,album	',
+        $data['vitridatgia'] = $this->FrontendArticles_Model->ReadByCondition(array(
+            'select' => 'id, title, slug, canonical,description,images,content,albums',
             'table' => 'articles',
             'where' => array('highlight' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
             'limit' => 1,
             'order_by' => 'order asc, id desc',
         ));
+        $data['tienichvang'] = $this->FrontendArticles_Model->ReadByCondition(array(
+            'select' => 'id, title, slug, canonical,description,images,content,albums',
+            'table' => 'articles',
+            'where' => array('isaside' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
+            'limit' => 1,
+            'order_by' => 'order asc, id desc',
+        ));
 
-//
-        $data['cackhoahoc'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'isaside' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
-        if (isset($data['cackhoahoc']) && is_array($data['cackhoahoc']) && count($data['cackhoahoc'])) {
-            foreach ($data['cackhoahoc'] as $key => $val) {
-                $data['cackhoahoc'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
+        $data['gioithieu'] = $this->FrontendArticles_Model->ReadByCondition(array(
+            'select' => 'id, title, slug, canonical,description,images,content,albums',
+            'table' => 'articles',
+            'where' => array('isfooter' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
+            'limit' => 1,
+            'order_by' => 'order asc, id desc',
+        ));
+        $data['hotrotaichinh'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
+        if (isset($data['hotrotaichinh']) && is_array($data['hotrotaichinh']) && count($data['hotrotaichinh'])) {
+            foreach ($data['hotrotaichinh'] as $key => $val) {
+                $data['hotrotaichinh'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
                     'modules' => 'articles',
                     'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`description`, `pr`.`content`, `pr`.`cataloguesid`, `pr`.`viewed`, `pr`.`created`',
                     'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-                    'limit' => 4,
+                    'limit' => 2,
                     'order_by' => '`pr`.`order` asc, `pr`.`id` desc',
                     'cataloguesid' => $val['id'],
                 ));
             }
         }
-        $data['sukienuudai'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'isfooter' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
-        if (isset($data['sukienuudai']) && is_array($data['sukienuudai']) && count($data['sukienuudai'])) {
-            foreach ($data['sukienuudai'] as $key => $val) {
-                $data['sukienuudai'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
+        $data['tintuc'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'isaside' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
+        if (isset($data['tintuc']) && is_array($data['tintuc']) && count($data['tintuc'])) {
+            foreach ($data['tintuc'] as $key => $val) {
+                $data['tintuc'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
                     'modules' => 'articles',
                     'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`description`, `pr`.`content`, `pr`.`cataloguesid`, `pr`.`viewed`, `pr`.`created`',
                     'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-                    'limit' => 3,
-                    'order_by' => '`pr`.`order` asc, `pr`.`id` desc',
-                    'cataloguesid' => $val['id'],
-                ));
-            }
-        }
-        $data['truyenthong'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'highlight' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
-        if (isset($data['truyenthong']) && is_array($data['truyenthong']) && count($data['truyenthong'])) {
-            foreach ($data['truyenthong'] as $key => $val) {
-                $data['truyenthong'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
-                    'modules' => 'articles',
-                    'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`description`, `pr`.`content`, `pr`.`cataloguesid`, `pr`.`viewed`, `pr`.`created`',
-                    'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-                    'limit' => 3,
+                    'limit' => 100,
                     'order_by' => '`pr`.`order` asc, `pr`.`id` desc',
                     'cataloguesid' => $val['id'],
                 ));
             }
         }
 
-        $data['doingugiangvien'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
-        if (isset($data['doingugiangvien']) && is_array($data['doingugiangvien']) && count($data['doingugiangvien'])) {
-            foreach ($data['doingugiangvien'] as $key => $val) {
-                $data['doingugiangvien'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
-                    'modules' => 'articles',
-                    'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`description`, `pr`.`content`, `pr`.`cataloguesid`, `pr`.`viewed`, `pr`.`created`',
-                    'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-                    'limit' => 1000,
-                    'order_by' => '`pr`.`order` asc, `pr`.`id` desc',
-                    'cataloguesid' => $val['id'],
-                ));
-            }
-        }
-//        $data['trainghiem'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, lft, rgt,images,description', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'parentid' => 0, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
-//        if (isset($data['trainghiem']) && is_array($data['trainghiem']) && count($data['trainghiem'])) {
-//            foreach ($data['trainghiem'] as $key => $val) {
-//                $data['trainghiem'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
-//                    'modules' => 'articles',
-//                    'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`description`, `pr`.`cataloguesid`,`pr`.`content`, `pr`.`viewed`, `pr`.`created`',
-//                    'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-//                    'limit' => 2,
-//                    'order_by' => '`pr`.`order` asc, `pr`.`id` desc',
-//                    'cataloguesid' => $val['id'],
-//                ));
-////                $data['trainghiem'][$key]['child'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'parentid' => $val['id'], 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 10, 'order_by' => 'order asc, id desc'));
-////                if (isset($data['trainghiem'][$key]['child']) && is_array($data['trainghiem'][$key]['child']) && count($data['trainghiem'][$key]['child'])) {
-////                    foreach ($data['trainghiem'][$key]['child'] as $keyCP => $valCP) {
-////                        $data['trainghiem'][$key]['child'][$keyCP]['postCP'] = $this->FrontendArticles_Model->_read_condition(array(
-////                            'modules' => 'articles',
-////                            'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`description`, `pr`.`cataloguesid`,`pr`.`content`, `pr`.`viewed`, `pr`.`created`',
-////                            'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-////                            'limit' => 5,
-////                            'order_by' => '`pr`.`order` asc, `pr`.`id` desc',
-////                            'cataloguesid' => $valCP['id'],
-////                        ));
-////                    }
-////                }
-//            }
-//        }
-//        $data['hinhanh'] = $this->FrontendGallerysCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
+        $data['hinhanh'] = $this->FrontendGallerysCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
 //        if (isset($data['hinhanh']) && is_array($data['hinhanh']) && count($data['hinhanh'])) {
 //            foreach ($data['hinhanh'] as $key => $val) {
 //                $data['hinhanh'][$key]['post'] = $this->FrontendGallerys_Model->_read_condition(array(
@@ -195,43 +149,30 @@ class Home extends FC_Controller
 //                ));
 //            }
 //        }
-        $data['hinhanh'] = $this->FrontendGallerys_Model->ReadByCondition(array(
-            'select' => 'id, title, slug, canonical,description,albums',
-            'table' => 'gallerys',
-            'where' => array('highlight' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
-            'limit' => 1,
-            'order_by' => 'order asc, id desc',
-        ));
-        //var_dump($data['hinhanh']);die;
-        $data['videos'] = $this->FrontendVideosCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
-        if (isset($data['videos']) && is_array($data['videos']) && count($data['videos'])) {
-            foreach ($data['videos'] as $key => $val) {
-                $data['videos'][$key]['post'] = $this->FrontendVideos_Model->_read_condition(array(
-                    'modules' => 'videos',
-                    'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`viewed`, `pr`.`videos_code`',
-                    'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1  AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
-                    'limit' => 5,
-                    'order_by' => '`pr`.`order` asc, `pr`.`id` asc',
-                    'cataloguesid' => $val['id'],
-                ));
-            }
-        }
-//
-//        $data['danhmuchome'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
-//            'select' => 'id, title, slug, canonical, description, images, lft, rgt', 'where'
-//            => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''),
-//            'limit' => 1, 'order_by' => 'order asc, id desc'));
 
+        //var_dump($data['hinhanh']);die;
+//        $data['videos'] = $this->FrontendVideosCatalogues_Model->ReadByCondition(array('select' => 'id, title, slug, canonical, images, lft, rgt,description', 'where' => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''), 'limit' => 1, 'order_by' => 'order asc, id desc'));
+//        if (isset($data['videos']) && is_array($data['videos']) && count($data['videos'])) {
+//            foreach ($data['videos'] as $key => $val) {
+//                $data['videos'][$key]['post'] = $this->FrontendVideos_Model->_read_condition(array(
+//                    'modules' => 'videos',
+//                    'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`viewed`, `pr`.`videos_code`',
+//                    'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1  AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
+//                    'limit' => 5,
+//                    'order_by' => '`pr`.`order` asc, `pr`.`id` asc',
+//                    'cataloguesid' => $val['id'],
+//                ));
+//            }
+//        }
 //
-//
-//
-//        $data['danhmuchighlight'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
+
+//        $data['danhmuchome'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
 //            'select' => 'id, title, slug, canonical, attributes, images, lft, rgt', 'where'
 //            => array('trash' => 0, 'publish' => 1, 'ishome' => 1, 'alanguage' => '' . $this->fc_lang . ''),
 //            'limit' => 100, 'order_by' => 'order asc, id desc'));
-//        if (isset($data['danhmuchighlight']) && is_array($data['danhmuchighlight']) && count($data['danhmuchighlight'])) {
-//            foreach ($data['danhmuchighlight'] as $key => $val) {
-//                $data['danhmuchighlight'][$key]['post'] = $this->FrontendProducts_Model->_read_condition(array(
+//        if (isset($data['danhmuchome']) && is_array($data['danhmuchome']) && count($data['danhmuchome'])) {
+//            foreach ($data['danhmuchome'] as $key => $val) {
+//                $data['danhmuchome'][$key]['post'] = $this->FrontendProducts_Model->_read_condition(array(
 //                    'modules' => 'products',
 //                    'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`price`, `pr`.`saleoff`, `pr`.`description`, `pr`.`content`, `pr`.`content1`',
 //                    'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
@@ -239,15 +180,15 @@ class Home extends FC_Controller
 //                    'order_by' => '`pr`.`order` asc, `pr`.`id` asc',
 //                    'cataloguesid' => $val['id'],
 //                ));
-////                $data['danhmuchighlight'][$key]['child'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
+////                $data['danhmuchome'][$key]['child'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
 ////                    'select' => 'id, title, slug, canonical, albums, images, lft, rgt',
 ////                    'where' => array('trash' => 0, 'publish' => 1, 'parentid' => $val['id'], 'alanguage' => '' . $this->fc_lang . ''),
 ////                    'limit' => 100,
 ////                    'order_by' => 'order asc, id desc',
 ////                ));
-////                if (isset($data['danhmuchighlight'][$key]['child']) && is_array($data['danhmuchighlight'][$key]['child']) && count($data['danhmuchighlight'][$key]['child'])) {
-////                    foreach ($data['danhmuchighlight'][$key]['child'] as $keyC => $valC) {
-////                        $data['danhmuchighlight'][$key]['child'][$keyC]['post'] = $this->FrontendProducts_Model->_read_condition(array(
+////                if (isset($data['danhmuchome'][$key]['child']) && is_array($data['danhmuchome'][$key]['child']) && count($data['danhmuchome'][$key]['child'])) {
+////                    foreach ($data['danhmuchome'][$key]['child'] as $keyC => $valC) {
+////                        $data['danhmuchome'][$key]['child'][$keyC]['post'] = $this->FrontendProducts_Model->_read_condition(array(
 ////                            'modules' => 'products',
 ////                            'select' => '`pr`.`id`, `pr`.`title`, `pr`.`slug`, `pr`.`canonical`, `pr`.`images`, `pr`.`price`, `pr`.`saleoff`, `pr`.`description`, `pr`.`content`, `pr`.`content1`',
 ////                            'where' => '`pr`.`trash` = 0 AND `pr`.`publish` = 1 AND `pr`.`alanguage` = \'' . $this->fc_lang . '\'',
@@ -260,7 +201,7 @@ class Home extends FC_Controller
 ////                }
 //            }
 //        }
-        //echo "<pre>";var_dump($data['danhmuchighlight']);die();
+        //echo "<pre>";var_dump($data['danhmuchome']);die();
 
 
         $data['meta_title'] = $this->fcSystem['seo_meta_title'];

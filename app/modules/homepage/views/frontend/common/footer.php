@@ -1,85 +1,103 @@
-<footer id="footer-site" class="wow fadeInUp">
+<link rel="stylesheet" href="templates/frontend/css/slick-theme.css" type="text/css" />
+<link rel="stylesheet" href="templates/frontend/css/slick.css" type="text/css" />
+<script type="text/javascript" src="templates/frontend/js/slick.js"></script>
+<script type="text/javascript" src="templates/frontend/js/homepage.js"></script>
+
+<?php $partner = $this->FrontendSlides_Model->Read('partner', $this->fc_lang); ?>
+<?php if (isset($partner) && is_array($partner) && count($partner)) { ?>
+<div id="section_partner">
     <div class="container">
-        <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="logo-footer"><img src="<?php echo $this->fcSystem['homepage_logo1'] ?>"
-                                          alt="<?php echo $this->fcSystem['homepage_brandname'] ?>"></div>
-            <div class="social-footer">
-                <ul>
-                    <li><a href="<?php echo $this->fcSystem['social_facebook'] ?>" target="_blank"><img
-                                src="templates/frontend/resources/images/f1.png" alt="facebook"></a></li>
-                    <li><a href="<?php echo $this->fcSystem['social_youtube'] ?>" target="_blank"><img
-                                src="templates/frontend/resources/images/f2.png" alt="youtube"></a></li>
-                    <li><a href="<?php echo $this->fcSystem['social_bocongthuong'] ?>" target="_blank"> <img
-                                src="templates/frontend/resources/images/f3.png" alt="bộ công thương"></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-8 col-sm-8 col-xs-12">
-            <div class="top-footer">
-                <div class="item">
-                    <ul>
-                        <li><img src="templates/frontend/resources/images/phone.png"
-                                 alt=""><span>Điện thoại:</span><?php echo $this->fcSystem['contact_phone'] ?></li>
-                        <li><img src="templates/frontend/resources/images/email.png"
-                                 alt=""><span>Email:</span><?php echo $this->fcSystem['contact_email'] ?></li>
-                        <li><img src="templates/frontend/resources/images/ws.png"
-                                 alt=""><span>website:</span><?php echo $this->fcSystem['contact_web'] ?></li>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wrap-partner">
+                    <h3 class="title">ĐỐI TÁC PHÂN PHỐI <span>chính thức</span></h3>
+                    <ul class="ls-partner">
+                        <?php foreach ($partner as $key => $val) { ?>
+                        <li><img class="img-responsive inline-block" src="<?php echo $val['image']; ?>" alt="<?php echo $val['title']; ?>" title="<?php echo $val['title']; ?>">
+                            <a href="javascript:void(0)">
+                                <p>
+                                    <span style="color: rgb(0, 0, 0); font-family: &quot;Roboto Condensed&quot;, sans-serif; font-size: 16px;"><?php echo $this->fcSystem['contact_phone']?></span>
+                                </p>
+                            </a>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
-                <div class="item">
-                    <h3 class="title-footer"><?php echo $this->fcSystem['homepage_company'] ?></h3>
-
-                    <p class="desc"><?php echo $this->fcSystem['homepage_note'] ?></p>
-                </div>
-                <div class="clearfix"></div>
             </div>
-            <div class="adress-footer">
+        </div>
 
-                <?php
-                $address = $this->Frontendaddress_Model->ReadByCondition(array(
-                    'select' => 'id, title, address',
-                    'table' => 'address',
-                    'where' => array('publish' => 1, 'trash' => 0),
-                    'limit' => 100,
-                    'order_by' => 'order asc,id desc',
-                ));
-                ?>
-                <?php if (is_array($address) && isset($address) && count($address)) { ?>
-                    <?php foreach ($address as $key => $val) { ?>
-                        <div class="item-adress">
-                            <h4 class="title"><i class="fas fa-map-marker-alt"></i><?php echo $val['title']; ?></h4>
+    </div>
+</div>
+<?php }?>
+<footer id="footer">
+    <div class="container-cus">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                            <span style="font-size:16px;"><?php echo $this->fcSystem['contact_address']?></span></p>
+                <p>
+                            <span style="font-size:14px;">Điện thoại: <?php echo $this->fcSystem['contact_phone']?></span></p>
+                <p>
+                    <span style="font-size:14px;"><?php echo base_url()?></span></p>
+                </p>
+            </div>
+            <div class="col-xs-12 col-md-6 box-right">
+                <ul class="ls-social">
+                    <li><a href="<?php echo $this->fcSystem['social_facebook']?>" target="_blank" class="bt-facebook">Facebook</a></li>
+                    <li><a href="<?php echo $this->fcSystem['social_youtube']?>" target="_blank" class="bt-youtube">Youtube</a></li>
+                </ul>
 
-                            <p class="desc"><?php echo $val['address']; ?></p>
-                        </div>
-                    <?php }
-                } ?>
-
-                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-
-
 </footer>
-<script type="text/javascript" src="templates/frontend/resources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="templates/frontend/resources/js/wow.min.js"></script>
-<script type="text/javascript" src="templates/frontend/resources/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="templates/frontend/resources/js/carousel.js"></script>
 
-<script src="templates/frontend/resources/js/hc-offcanvas-nav.js?ver=3.3.0"></script>
-<script type="text/javascript" src="templates/frontend/resources/js/buong.js"></script>
-<script>
-    //hieu ung wow------------------------------------------
-    wow = new WOW(
-        {
-            animateClass: 'animated',
-            offset: 100,
-            callback: function (box) {
-                console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-            }
+
+
+<div class="wrap-fixed">
+    <a class="bt-control bt-res">Res</a>
+    <a class="bt-control bt-download" href="<?php echo $this->fcSystem['homepage_Link']?>" target="_blank">Download</a>
+    <div class="wrap-res">
+        <div class="title">Hotline</div>
+        <ul class="ls-hotline">
+            <li><a href="tel:<?php echo $this->fcSystem['contact_phone']?>"><?php echo $this->fcSystem['contact_phone']?></a></li>
+            <li><a href="javscript:void();"><?php echo $this->fcSystem['contact_address']?></a></li>
+        </ul>
+
+    </div>
+    <a id="gotop" class="logo btn-scroll"></a>
+    <div class="hidden">
+        <div id="startpopup" class="startpopup">
+            <div class="content">
+
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        .wrap-res .renewCaptcha {
+            top: 0px;
+            bottom: 0px;
         }
-    );
-    wow.init();
 
+        .wrap-res .imgCaptcha {
+            margin-bottom: 10px
+        }
+    </style>
+    <script type="text/javascript" src="templates/frontend/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/bootbox.min.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/css3-animate-it.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/stickytooltip.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/SmoothScroll.js"></script>
+    <script type="text/javascript" src="templates/frontend/js/jquery.imagemapster.min.js"></script>
 
-</script>
+    <link href="templates/frontend/css/animations.css" rel="Stylesheet" rev="Stylesheet" />
+    <link href="templates/frontend/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="templates/frontend/css/jquery.bxslider.min.css" rel="stylesheet">
+    <script type="text/javascript" src="templates/frontend/js/jquery.tint.js"></script>
+</div>
+</section>

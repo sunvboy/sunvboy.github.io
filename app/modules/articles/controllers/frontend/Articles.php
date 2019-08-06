@@ -26,13 +26,13 @@ class Articles extends FC_Controller{
 			$this->session->set_flashdata('message-danger', $this->lang->line('error_articles_catalogues'));
 			redirect(base_url());
 		}
-		$data['articles_cat'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array(
-            'select' => 'id, title, slug, canonical, description, lft, rgt',
-            'where' => array('trash' => 0,'publish' => 1, 'parentid' => 0, 'alanguage' => ''.$this->fc_lang.''),
-            'order_by' => 'order asc, id desc',
-        ));
+	//		$data['articles_cat'] = $this->FrontendArticlesCatalogues_Model->ReadByCondition(array(
+	//            'select' => 'id, title, slug, canonical, description, lft, rgt',
+	//            'where' => array('trash' => 0,'publish' => 1, 'parentid' => 0, 'alanguage' => ''.$this->fc_lang.''),
+	//            'order_by' => 'order asc, id desc',
+	//        ));
 		$data['Breadcrumb'] = $this->FrontendArticlesCatalogues_Model->Breadcrumb($DetailCatalogues['lft'], $DetailCatalogues['rgt'], $this->fc_lang);
-		$data['TagsList'] = $this->FrontendTags_Model->ReadByModule($id, 'articles');
+//		$data['TagsList'] = $this->FrontendTags_Model->ReadByModule($id, 'articles');
 		$cataloguesid = $this->FrontendArticles_Model->_get_where(array(
 			'select' => 'cataloguesid',
 			'table' => 'catalogues_relationship',
@@ -61,16 +61,7 @@ class Articles extends FC_Controller{
 		$data['created'] = show_time($DetailArticles['created'], 'd/m/Y');
 		$data['view'] = $DetailArticles['viewed'];
 		$this->FrontendArticles_Model->UpdateViewed('id', $DetailArticles['id'], $this->fc_lang);
-
-		if($data['DetailCatalogues']['isaside']==1){
-			$data['template'] = 'articles/frontend/articles/baidichvu';
-
-		}
-		else{
-			$data['template'] = 'articles/frontend/articles/view';
-
-		}
-
-		$this->load->view('homepage/frontend/layouts/home', isset($data)?$data:NULL);
+		$data['template'] = 'articles/frontend/articles/view';
+		$this->load->view('homepage/frontend/layouts/home2', isset($data)?$data:NULL);
 	}
 }

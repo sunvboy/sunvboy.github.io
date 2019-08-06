@@ -1,25 +1,71 @@
-<main id="main" class="site-cat-menu" style="margin-top: 30px;">
-    <div class="container">
-        <div class="row">
+<div class="clear" style="height:20px;"></div>
+<main id="main">
+    <section id="content">
+        <div id="sanpham">
+            <div class="container">
+                <div class="box">
+                    <div class="thanh_index"><h2><?php echo $DetailCatalogues['title']; ?></h2></div>
+                    <div class="clear" style="height:20px;"></div>
+                    <div class="boxsp">
 
-            <?php if (is_array($cat_child) && isset($cat_child) && count($cat_child)) { ?>
-                <?php foreach ($cat_child as $key => $val) { ?>
-                    <?php
-                    $href = rewrite_url($val['canonical'], $val['slug'], $val['id'], 'products_catalogues');
-                    ?>
+                        <?php if (isset($productsList) && is_array($productsList) && count($productsList)) { ?>
+                            <?php foreach ($productsList as $keyp => $val) { ?>
+                                <?php
+                                $title = $val['title'];
+                                $href = rewrite_url($val['canonical'], $val['slug'], $val['id'], 'products');
+                                $image = getthumb($val['images'], FALSE);
+                                $price = $val['price'];
+                                $saleoff = $val['saleoff'];
+                                if ($price > 0) {
+                                    $giaold = str_replace(',', '.', number_format($price));
+                                } else {
+                                    $giaold = '';
+                                }
+                                if ($saleoff > 0) {
+                                    $gia = str_replace(',', '.', number_format($saleoff)) . ' đ';
+                                } else {
+                                    $gia = 'Contact';
+                                }
+                                if ($saleoff > 0 && $price > 0 && $saleoff < $price) {
+                                    $sale = ceil(($price - $saleoff) / $price * 100);
+                                    $price_sale = str_replace(',', '.', number_format($price - $saleoff)) . '?';
+                                } else {
+                                    $sale = $price_sale = '';
+                                }
+                                ?>
+                                <div class="item">
+                                    <div class="box_item">
+                                        <div class="content_item">
+                                            <div class="img_item"><a href="<?php echo $href; ?>"
+                                                                     title="<?php echo $title; ?>"><img
+                                                        src="<?php echo $image ?>" alt="<?php echo $title; ?>" style="height: 275px;object-fit: cover;width: 100%"></a>
 
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="list-menu-cat h_43648"><img src="<?php echo $val['images'] ?>" style="object-fit: cover"><a class="title-cat-menu"
-                                                                                              href="<?php echo $href ?>"><?php echo $val['title'] ?></a>
-                        </div>
+                                                <div class="info_item">
+                                                    <h3><a href="<?php echo $href; ?>"
+                                                           title="<?php echo $title; ?>"><?php echo $title; ?></a></h3>
+
+                                                    <div class="clear" style="height:10px;"></div>
+                                                    <div class="g">
+                                                        <div class="gb">Giá: <span><?php echo $gia ?></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
+
                     </div>
-                <?php }
-            } ?>
+                    <div class="clear"></div>
+                    <div class="paging"></div>
 
 
+                </div>
+                <div class="clear" style="height:15px;"></div>
+                <h1 class="visit_hidden fn org"><?php echo $DetailCatalogues['title']; ?></h1>
+            </div>
         </div>
-        <!-- .End row -->
-    </div>
-
-
+    </section>
+    <div class="clear"></div>
 </main>

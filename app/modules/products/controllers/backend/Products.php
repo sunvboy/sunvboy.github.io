@@ -199,53 +199,9 @@ class Products extends FC_Controller{
 				}
 
 
-				$albumlist = $this->input->post('albumlist');
-				$album_data_2 = '';
-				if(isset($albumlist['images']) && is_array($albumlist['images'])  && count($albumlist['images'])) {
-					foreach ($albumlist['images'] as $key => $val) {
-						$album_data_2[] = array('images' => $val); 
-					}
-				}
-				if(isset($album_data_2) && is_array($album_data_2)  && count($album_data_2) && isset($albumlist['title']) && is_array($albumlist['title']) && count($albumlist['title']) && isset($albumlist['description']) && is_array($albumlist['description']) && count($albumlist['description'])) {
-					foreach ($album_data_2 as $key => $val) {
-						$album_data_2[$key]['title'] = $albumlist['title'][$key];
-						$album_data_2[$key]['description'] = $albumlist['description'][$key];
-					}
-				}
 
 
-				$albumlist3 = $this->input->post('albumlist3');
-				$album_data_3 = '';
-				if(isset($albumlist3['images']) && is_array($albumlist3['images'])  && count($albumlist3['images'])) {
-					foreach ($albumlist3['images'] as $key => $val) {
-						$album_data_3[] = array('images' => $val);
-					}
-				}
-				if(isset($album_data_3) && is_array($album_data_3)  && count($album_data_3) && isset($albumlist3['title']) && is_array($albumlist3['title']) && count($albumlist3['title']) && isset($albumlist3['description']) && is_array($albumlist3['description']) && count($albumlist3['description'])) {
-					foreach ($album_data_3 as $key => $val) {
-						$album_data_3[$key]['title'] = $albumlist3['title'][$key];
-						$album_data_3[$key]['description'] = $albumlist3['description'][$key];
-					}
-				}
-
-				$albumlist4 = $this->input->post('albumlist4');
-				$album_data_4 = '';
-				if(isset($albumlist4['images']) && is_array($albumlist4['images'])  && count($albumlist4['images'])) {
-					foreach ($albumlist4['images'] as $key => $val) {
-						$album_data_4[] = array('images' => $val);
-					}
-				}
-				if(isset($album_data_4) && is_array($album_data_4)  && count($album_data_4) && isset($albumlist4['title']) && is_array($albumlist4['title']) && count($albumlist4['title']) && isset($albumlist4['description']) && is_array($albumlist4['description']) && count($albumlist4['description'])) {
-					foreach ($album_data_4 as $key => $val) {
-						$album_data_4[$key]['title'] = $albumlist4['title'][$key];
-						$album_data_4[$key]['description'] = $albumlist4['description'][$key];
-						$album_data_4[$key]['content1'] = $albumlist4['content1'][$key];
-						$album_data_4[$key]['content2'] = $albumlist4['content2'][$key];
-					}
-				}
-
-				
-				$resultid = $this->BackendProducts_Model->Create($this->fcUser,$data['catalogue'], $album_data, $album_data_2,$album_data_3,$album_data_4, $this->fclang);
+				$resultid = $this->BackendProducts_Model->Create($this->fcUser,$data['catalogue'], $album_data, $this->fclang);
 				//upload file psd
 				$config['upload_path']   = './uploads/files/';
 				$config['allowed_types'] = 'pdf|docx|xls|doc';
@@ -266,13 +222,6 @@ class Products extends FC_Controller{
 					}
 				}
 				//end
-
-
-
-
-
-
-
 
 				if($resultid > 0){
 					$canonical = slug($this->input->post('canonical'));
@@ -367,60 +316,7 @@ class Products extends FC_Controller{
 				}
 
 
-				$albumlist = $this->input->post('albumlist');
-				$album_data_2 = '';
-				if(isset($albumlist['images']) && is_array($albumlist['images'])  && count($albumlist['images'])) {
-					foreach ($albumlist['images'] as $key => $val) {
-						$album_data_2[] = array('images' => $val); 
-					}
-				}
-				if(isset($album_data_2) && is_array($album_data_2)  && count($album_data_2) && isset($albumlist['title']) && is_array($albumlist['title']) && count($albumlist['title']) && isset($albumlist['description']) && is_array($albumlist['description']) && count($albumlist['description'])) {
-					foreach ($album_data_2 as $key => $val) {
-						$album_data_2[$key]['title'] = $albumlist['title'][$key];
-						$album_data_2[$key]['description'] = $albumlist['description'][$key];
-					}
-				}
-
-
-
-				$albumlist3 = $this->input->post('albumlist3');
-				$album_data_3 = '';
-				if(isset($albumlist3['images']) && is_array($albumlist3['images'])  && count($albumlist3['images'])) {
-					foreach ($albumlist3['images'] as $key => $val) {
-						$album_data_3[] = array('images' => $val);
-					}
-				}
-				if(isset($album_data_3) && is_array($album_data_3)  && count($album_data_3) && isset($albumlist3['title']) && is_array($albumlist3['title']) && count($albumlist3['title']) && isset($albumlist3['description']) && is_array($albumlist3['description']) && count($albumlist3['description'])) {
-					foreach ($album_data_3 as $key => $val) {
-						$album_data_3[$key]['title'] = $albumlist3['title'][$key];
-						$album_data_3[$key]['description'] = $albumlist3['description'][$key];
-					}
-				}
-
-
-
-				$albumlist4 = $this->input->post('albumlist4');
-				$album_data_4 = '';
-				if(isset($albumlist4['images']) && is_array($albumlist4['images'])  && count($albumlist4['images'])) {
-					foreach ($albumlist4['images'] as $key => $val) {
-						$album_data_4[] = array('images' => $val);
-					}
-				}
-				if(isset($album_data_4) && is_array($album_data_4)  && count($album_data_4) && isset($albumlist4['title']) && is_array($albumlist4['title']) && count($albumlist4['title']) && isset($albumlist4['description']) && is_array($albumlist4['description']) && count($albumlist4['description'])) {
-					foreach ($album_data_4 as $key => $val) {
-						$album_data_4[$key]['title'] = $albumlist4['title'][$key];
-						$album_data_4[$key]['description'] = $albumlist4['description'][$key];
-						$album_data_4[$key]['content1'] = $albumlist4['content1'][$key];
-						$album_data_4[$key]['content2'] = $albumlist4['content2'][$key];
-					}
-				}
-
-
-
-
-
-				
-				$flag = $this->BackendProducts_Model->UpdateByPost('id', $id, $this->fcUser, $catalogues, $album_data, $album_data_2,$album_data_3,$album_data_4);
+				$flag = $this->BackendProducts_Model->UpdateByPost('id', $id, $this->fcUser, $catalogues, $album_data);
 				// upload file
 
 				$config2['upload_path'] = './uploads/files/';

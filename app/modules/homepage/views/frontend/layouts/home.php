@@ -63,13 +63,13 @@
     <?php echo $this->fcSystem['script_header'] ?>
 
 </head>
-<body>
-<div class="page-body-11">
+<body class="lang-vi-VN  homepage">
+
     <?php $this->load->view('homepage/frontend/common/header'); ?>
     <?php $this->load->view(isset($template) ? $template : ''); ?>
     <?php $this->load->view('homepage/frontend/common/footer'); ?>
     <?php $this->load->view('homepage/frontend/common/fb-chat'); ?>
-    <div id="show_success_mss" style="position: fixed; top: 150px; right: 20px;z-index: 99999">
+    <div id="show_success_mss" style="position: fixed; top: 150px; right: 20px;z-index: 999999999999999999999999">
         <?php if ($this->session->flashdata('message-success')) { ?>
 
             <div class="alert alert-success alert-dismissible" role="alert">
@@ -84,11 +84,6 @@
             <?php
         } ?>
     </div>
-
-
-
- 
-
     <?php echo $this->fcSystem['script_body'] ?>
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
@@ -99,6 +94,11 @@
             js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=548945608802089&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-</div>
+    <script>
+        setTimeout(function () {
+            jQuery('#show_success_mss').fadeOut().empty();
+        }, 5000);
+    </script>
+
 </body>
 </html>

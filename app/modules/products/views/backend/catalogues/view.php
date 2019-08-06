@@ -41,7 +41,7 @@
 					<th>Người tạo</th>
 					<th>Thời gian</th>
 					<th>Xuất bản</th>
-					<th>Voucher  </th>
+					<th>Trang chủ</th>
 <!--					<th>DÒNG XE TAXI NỘI BÀI</th>-->
 <!--					<th>Phụ kiện nổi bật</th>-->
 					<th class="text-right">Thao tác</th>

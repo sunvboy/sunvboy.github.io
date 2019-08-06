@@ -19,11 +19,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab-info" data-toggle="tab">Thông tin cơ bản</a></li>
                         <li class=""><a href="#tab-album" data-toggle="tab">Album </a></li>
-<!--                        <li class=""><a href="#tab-tour" data-toggle="tab">Tour info </a></li>-->
-                        <li class=""><a href="#tab-rooms" data-toggle="tab">Voucher</a></li>
-                        <!--                        <li><a href="#tab-album-list" data-toggle="tab">Album thư viện ảnh</a></li>-->
-                        <!--                                                <li><a href="#tab-album-list3" data-toggle="tab">Feature</a></li>-->
-<!--                        <li><a href="#tab-album-list4" data-toggle="tab">Thông tin</a></li>-->
+
                     </ul>
                     <div class="tab-content">
                         <div class="box-body">
@@ -119,80 +115,21 @@
                                         <?php echo form_textarea('description', htmlspecialchars_decode(set_value('description')), 'id="txtDescription" class="ckeditor-description" placeholder="Mô tả" style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"'); ?>
                                     </div>
                                 </div>
-
-
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab-rooms">
-                            <div class="box-body">
-
-
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label tp-text-left">Giới thiệu</label>
+                                    <label class="col-sm-2 control-label tp-text-left">Chi tiết</label>
 
                                     <div class="col-sm-10">
-                                        <?php echo form_input('content', set_value('content'), 'class="form-control" placeholder="Giới thiệu"'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label tp-text-left">Thời gian<br>(8/16/2019 15:00:00)<br>(tháng/ngày/năm 15:00:00)</label>
-
-                                    <div class="col-sm-10">
-                                        <?php echo form_input('content1', set_value('content1'), 'class="form-control" placeholder="(8/3/2019 15:00:00)"'); ?>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label tp-text-left">Mô tả</label>
-
-                                    <div class="col-sm-10">
-                                        <?php echo form_textarea('content2', htmlspecialchars_decode(set_value('content2')), 'id="txtDescriptionc2" class="ckeditor-description" placeholder="Mô tả" style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label tp-text-left">Thông tin chi tiết</label>
-
-                                    <div class="col-sm-10">
-                                        <?php echo form_textarea('content3', htmlspecialchars_decode(set_value('content3')), 'id="txtDescription3" class="ckeditor-description" placeholder="Description" style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group hide">
-                                    <label class="col-sm-2 control-label tp-text-left">Chi tiết phòng</label>
-
-                                    <div class="col-sm-10">
-                                        <?php echo form_textarea('content4', htmlspecialchars_decode(set_value('content4')), 'id="txtDescription4" class="ckeditor-description" placeholder="Mặt bằng" style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"'); ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <div class="tab-pane" id="tab-tour">
-                            <div class="box-body">
-
-
-
-
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label tp-text-left">Prices</label>
-
-                                    <div class="col-sm-10">
-                                        <?php echo form_textarea('price_sale', htmlspecialchars_decode(set_value('price_sale')), 'id="txtDescriptionri2" class="ckeditor-description" placeholder="Giá bán" style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"'); ?>
+                                        <?php echo form_textarea('content', htmlspecialchars_decode(set_value('content')), 'id="txtContent" class="ckeditor-description" placeholder="Mô tả" style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"'); ?>
                                     </div>
                                 </div>
 
                             </div>
                             <!-- /.box-body -->
                         </div>
+                        <!-- /.tab-pane -->
+
                         <div class="tab-pane" id="tab-album">
-                            <div class="form-group hide">
-                                <label class="col-sm-2 control-label tp-text-left">Links ảnh phân cách</label>
 
-                                <div class="col-sm-12">
-                                    <?php echo form_input('code', set_value('code'), 'class="form-control" placeholder="vd: /uploads/images/products/360/aima-jeek/xe-may-dien-aima-jeek-"'); ?>
-                                </div>
-                            </div>
 
                             <div class="box-body">
                                 <div class="form-group" id="fromSlide">
@@ -218,109 +155,6 @@
                                         <?php } ?>
                                         <div class="col-sm-3 slideItem">
                                             <button type="button" class="btn btnAddItem add1 pull-left">+</button>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab-album-list">
-                            <div class="box-body">
-                                <div class="form-group" id="fromSlidelist">
-                                    <?php $albumlist = $this->input->post('albumlist');
-                                    if (isset($albumlist) && is_array($albumlist) && count($albumlist)) { ?>
-                                        <?php foreach ($albumlist['images'] as $key => $val) {
-                                            if (empty($albumlist['images'][$key])) continue; ?>
-                                            <div class="col-sm-3 slideItem">
-                                                <div class="thumb"><img src="<?php echo $albumlist['images'][$key]; ?>"
-                                                                        class="img-thumbnail img-responsive"/></div>
-                                                <input type="hidden" name="albumlist[images][]"
-                                                       value="<?php echo $albumlist['images'][$key]; ?>"/>
-                                                <input type="text" name="albumlist[title][]"
-                                                       value="<?php echo $albumlist['title'][$key]; ?>"
-                                                       class="form-control title" placeholder="Tên ảnh"/>
-                                                <textarea name="albumlist[description][]" cols="40" rows="10"
-                                                          class="form-control description"
-                                                          placeholder="Mô tả ảnh"><?php echo $albumlist['description'][$key]; ?></textarea>
-                                                <button type="button"
-                                                        class="btn btnRemove remove2 btn-danger pull-right">Xóa bỏ
-                                                </button>
-                                            </div>
-                                        <?php } ?>
-                                        <div class="col-sm-3 slideItem">
-                                            <button type="button" class="btn btnAddItem add2 pull-left">+</button>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab-album-list3">
-                            <div class="box-body">
-                                <div class="form-group" id="fromSlidelist3">
-                                    <?php $albumlist3 = $this->input->post('albumlist3');
-                                    if (isset($albumlist3) && is_array($albumlist3) && count($albumlist3)) { ?>
-                                        <?php foreach ($albumlist3['images'] as $key => $val) {
-                                            if (empty($albumlist3['images'][$key])) continue; ?>
-                                            <div class="col-sm-3 slideItem">
-                                                <div class="thumb"><img src="<?php echo $albumlist3['images'][$key]; ?>"
-                                                                        class="img-thumbnail img-responsive"/></div>
-                                                <input type="hidden" name="albumlist3[images][]"
-                                                       value="<?php echo $albumlist3['images'][$key]; ?>"/>
-                                                <input type="text" name="albumlist3[title][]"
-                                                       value="<?php echo $albumlist3['title'][$key]; ?>"
-                                                       class="form-control title" placeholder="Tên"/>
-                                                <textarea name="albumlist3[description][]" cols="40" rows="10"
-                                                          class="form-control description"
-                                                          placeholder="Mô tả"><?php echo $albumlist['description'][$key]; ?></textarea>
-                                                <button type="button"
-                                                        class="btn btnRemove remove3 btn-danger pull-right">Xóa bỏ
-                                                </button>
-                                            </div>
-                                        <?php } ?>
-                                        <div class="col-sm-3 slideItem">
-                                            <button type="button" class="btn btnAddItem add3 pull-left">+</button>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab-album-list4">
-                            <div class="box-body">
-                                <div class="form-group" id="fromSlidelist4">
-                                    <?php $albumlist4 = $this->input->post('albumlist4');
-                                    if (isset($albumlist4) && is_array($albumlist4) && count($albumlist4)) { ?>
-                                        <?php foreach ($albumlist4['title'] as $key => $val) {
-                                            if (empty($albumlist4['title'][$key])) continue; ?>
-                                            <div class="col-sm-12 slideItem">
-                                                <div class="thumb hide"><img
-                                                        src="<?php echo $albumlist4['images'][$key]; ?>"
-                                                        class="img-thumbnail img-responsive"/></div>
-                                                <input type="hidden" name="albumlist4[images][]"
-                                                       value="<?php echo $albumlist4['images'][$key]; ?>"/>
-                                                <input type="text" name="albumlist4[title][]"
-                                                       value="<?php echo $albumlist4['title'][$key]; ?>"
-                                                       class="form-control title" placeholder="Tên ảnh"/>
-                                                <textarea name="albumlist4[description][]" cols="40" rows="10"
-                                                          class="form-control description hide"
-                                                          placeholder="Mô tả ảnh"><?php echo $albumlist4['description'][$key]; ?></textarea>
-                                                <input type="hidde" name="albumlist4[content1][]"
-                                                       value="<?php echo $albumlist4['content1'][$key]; ?>"
-                                                       class="form-control content1" placeholder="Mô tả 1"/>
-                                                <input type="hidde" name="albumlist4[content2][]"
-                                                       value="<?php echo $albumlist4['content2'][$key]; ?>"
-                                                       class="form-control content2" placeholder="Mô tả 2"/>
-                                                <button type="button"
-                                                        class="btn btnRemove remove4 btn-danger pull-right">Xóa bỏ
-                                                </button>
-                                            </div>
-                                        <?php } ?>
-                                        <div class="col-sm-3 slideItem">
-                                            <button type="button" class="btn btnAddItem add4 pull-left">+</button>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -392,21 +226,6 @@
                                     <?php echo form_input('saleoff', set_value('saleoff'), 'class="form-control price-saleoff" placeholder="Giá bán"'); ?>
                                 </div>
                             </div>
-                            <div class="form-group hide">
-                                <label class="col-sm-12 control-label tp-text-left">Adults</label>
-
-                                <div class="col-sm-12">
-                                    <?php echo form_input('adults', set_value('adults'), 'class="form-control" placeholder="Adults"'); ?>
-                                </div>
-                            </div>
-                            <div class="form-group hide">
-                                <label class="col-sm-12 control-label tp-text-left">Children</label>
-
-                                <div class="col-sm-12">
-                                    <?php echo form_input('children', set_value('children'), 'class="form-control" placeholder="Children"'); ?>
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <label class="col-sm-12 control-label tp-text-left">Breadcrumb / Danh mục cha</label>
                             </div>
@@ -440,50 +259,6 @@
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <?php echo form_dropdown('publish', $this->configbie->data('publish'), set_value('publish', 1), 'class="form-control" style="width: 100%;"'); ?>
-                                </div>
-                            </div>
-
-                            <div class="hide">
-                                <div class="form-group">
-                                    <label class="col-sm-12 control-label tp-text-left">Tình trạng</label>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <?php echo form_dropdown('highlight', $this->configbie->data('highlight'), set_value('highlight', -1), 'class="form-control" style="width: 100%;"'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group hide">
-                                    <label class="col-sm-12 control-label tp-text-left">Trang chủ</label>
-                                </div>
-                                <div class="form-group hide">
-                                    <div class="col-sm-12">
-                                        <?php echo form_dropdown('ishome', $this->configbie->data('ishome'), set_value('ishome', -1), 'class="form-control" style="width: 100%;"'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group hide">
-                                    <label class="col-sm-12 control-label tp-text-left">Aside</label>
-                                </div>
-                                <div class="form-group hide">
-                                    <div class="col-sm-12">
-                                        <?php echo form_dropdown('isaside', $this->configbie->data('isaside'), set_value('isaside', -1), 'class="form-control" style="width: 100%;"'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group hide">
-                                    <label class="col-sm-12 control-label tp-text-left">Sản phẩm mới</label>
-                                </div>
-                                <div class="form-group hide">
-                                    <div class="col-sm-12">
-                                        <?php echo form_dropdown('isfooter', $this->configbie->data('isfooter'), set_value('isfooter', 1), 'class="form-control" style="width: 100%;"'); ?>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-12 control-label tp-text-left">Bán chạy</label>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <?php echo form_dropdown('psale', $this->configbie->data('psale'), set_value('psale', -1), 'class="form-control" style="width: 100%;"'); ?>
-                                    </div>
                                 </div>
                             </div>
 
@@ -586,122 +361,6 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(window).load(function () {
-        var item;
-        item = '<div class="col-sm-3 slideItem">';
-        item = item + '<div class="thumb"><img src="templates/backend/images/not-found.png" class="img-thumbnail img-responsive"/></div>';
-        item = item + '<input type="hidden" name="albumlist[images][]" value="" />';
-        item = item + '<input type="text" name="albumlist[title][]" value="" class="form-control title" placeholder="Tên ảnh"/>';
-        item = item + '<textarea name="albumlist[description][]" cols="40" rows="10" class="form-control description" placeholder="Mô tả ảnh"></textarea>';
-        item = item + '<button type="button" class="btn btnRemove remove2 btn-danger pull-right">Xóa bỏ</button>';
-        item = item + '</div>';
-        item = item + '<div class="col-sm-3 slideItem"><button type="button" class="btn btnAddItem add2 pull-left">+</button></div>';
-        if ($('#fromSlidelist').html().trim() == '') {
-            $('#fromSlidelist').append(item);
-        }
-        /* Thêm phần tử đầu tiên */
-        $(document).on('click', '.btnAddFrist', function () {
-            $('#fromSlidelist').html(item);
-        });
-
-        /* Thêm phần tử tiếp theo */
-        $(document).on('click', '.btnAddItem.add2', function () {
-            $('.btnAddItem.add2').parent().remove();
-            $('#fromSlidelist').append(item);
-        });
-
-        /* Xóa phần tử */
-        $(document).on('click', '.btnRemove.remove2', function () {
-            $(this).parent().remove();
-        });
-
-        /* Xóa phần tử */
-        $(document).on('click', '.img-thumbnail', function () {
-            openKCFinderAlbum($(this));
-        });
-    });
-</script>
-
-
-<script type="text/javascript">
-    $(window).load(function () {
-        var item;
-        item = '<div class="col-sm-3 slideItem">';
-        item = item + '<div class="thumb"><img src="templates/backend/images/not-found.png" class="img-thumbnail img-responsive"/></div>';
-        item = item + '<input type="hidden" name="albumlist3[images][]" value="" />';
-        item = item + '<input type="text" name="albumlist3[title][]" value="" class="form-control title" placeholder="Tên"/>';
-        item = item + '<textarea name="albumlist3[description][]" cols="40" rows="10" class="form-control description" placeholder="Mô tả"></textarea>';
-        item = item + '<button type="button" class="btn btnRemove remove3 btn-danger pull-right">Xóa bỏ</button>';
-        item = item + '</div>';
-        item = item + '<div class="col-sm-3 slideItem"><button type="button" class="btn btnAddItem add3 pull-left">+</button></div>';
-        if ($('#fromSlidelist3').html().trim() == '') {
-            $('#fromSlidelist3').append(item);
-        }
-        /* Thêm phần tử đầu tiên */
-        $(document).on('click', '.btnAddFrist3', function () {
-            $('#fromSlidelist3').html(item);
-        });
-
-        /* Thêm phần tử tiếp theo */
-        $(document).on('click', '.btnAddItem.add3', function () {
-            $('.btnAddItem.add3').parent().remove();
-            $('#fromSlidelist3').append(item);
-        });
-
-        /* Xóa phần tử */
-        $(document).on('click', '.btnRemove.remove3', function () {
-            $(this).parent().remove();
-        });
-
-        /* Xóa phần tử */
-        $(document).on('click', '.img-thumbnail', function () {
-            openKCFinderAlbum($(this));
-        });
-    });
-</script>
-
-
-<script type="text/javascript">
-    $(window).load(function () {
-        var item;
-        item = '<div class="col-sm-12 slideItem">';
-        item = item + '<div class="thumb hide"><img src="templates/backend/images/not-found.png" class="img-thumbnail img-responsive"/></div>';
-        item = item + '<input type="hidden" name="albumlist4[images][]" value="" />';
-        item = item + '<input type="text" name="albumlist4[title][]" value="" class="form-control title" placeholder="Tên"/>';
-        item = item + '<textarea name="albumlist4[description][]" cols="40" rows="10" class="form-control description hide" placeholder="Mô tả"></textarea>';
-        item = item + '<input type="text" name="albumlist4[content1][]" value="" class="form-control content1 hide" placeholder="Mô tả 1"/>';
-
-        item = item + '<input type="text" name="albumlist4[content2][]" value="" class="form-control content2 hide" placeholder="Mô tả 2"/>';
-
-        item = item + '<button type="button" class="btn btnRemove remove4 btn-danger pull-right">Xóa bỏ</button>';
-        item = item + '</div>';
-        item = item + '<div class="col-sm-3 slideItem"><button type="button" class="btn btnAddItem add4 pull-left">+</button></div>';
-        if ($('#fromSlidelist4').html().trim() == '') {
-            $('#fromSlidelist4').append(item);
-        }
-        /* Thêm phần tử đầu tiên */
-        $(document).on('click', '.btnAddFrist4', function () {
-            $('#fromSlidelist4').html(item);
-        });
-
-        /* Thêm phần tử tiếp theo */
-        $(document).on('click', '.btnAddItem.add4', function () {
-            $('.btnAddItem.add4').parent().remove();
-            $('#fromSlidelist4').append(item);
-        });
-
-        /* Xóa phần tử */
-        $(document).on('click', '.btnRemove.remove4', function () {
-            $(this).parent().remove();
-        });
-
-        /* Xóa phần tử */
-        $(document).on('click', '.img-thumbnail', function () {
-            openKCFinderAlbum($(this));
-        });
-    });
-</script>
 <style>
     .slideItem{
         height: auto;

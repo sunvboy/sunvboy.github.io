@@ -41,17 +41,15 @@
 					<th>Người sửa</th>
 					<th>Thời gian</th>
 					<th>Xuất bản</th>
-					<th>Đội ngũ giảng viên  </th>
-					<th>	KHÓA HỌC TẠI ALES  </th>
-					<th>TRUYỀN THÔNG NÓI VỀ ALES</th>
-					<th>SỰ KIỆN ƯU ĐÃI</th>
-					<th>Blog chia sẻ giảng viên</th>
-<!--					<th>Các hình thức xác thực</th>-->
+					<th>	HỖ TRỢ TÀI CHÍNH </th>
+					<th>Tin tức</th>
+
 					<th class="text-right">Thao tác</th>
 				</tr>
 				<?php foreach($ListArticles as $key => $item){ ?>
 				<?php  
-					$href = rewrite_url($item['canonical'], $item['slug'], $item['id'], 'articles_catalogues');
+//					$href = rewrite_url($item['canonical'], $item['slug'], $item['id'], 'articles_catalogues');
+					$href = "javascript:void()";
 				?>
 				<tr>
 					<td><?php echo $item['id'];?></td>
@@ -83,26 +81,7 @@
 							<img src="<?php echo (!empty($item['isaside']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
 						</a>
 					</td>
-					<td class="">
-						<a href="<?php echo site_url('articles/backend/catalogues/set/highlight/'.$item['id'].'?redirect='.urlencode(current_url())); ?>" title="" class="status-publish">
-							<img src="<?php echo (!empty($item['highlight']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
-						</a>
-					</td>
-					<td class="">
-						<a href="<?php echo site_url('articles/backend/catalogues/set/isfooter/'.$item['id'].'?redirect='.urlencode(current_url())); ?>" title="" class="status-publish">
-							<img src="<?php echo (!empty($item['isfooter']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
-						</a>
-					</td>
-					<td class="">
-						<a href="<?php echo site_url('articles/backend/catalogues/set/ishot/'.$item['id'].'?redirect='.urlencode(current_url())); ?>" title="" class="status-publish">
-							<img src="<?php echo (!empty($item['ishot']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
-						</a>
-					</td>
-					<td class="hide">
-						<a href="<?php echo site_url('articles/backend/catalogues/set/iscategory/'.$item['id'].'?redirect='.urlencode(current_url())); ?>" title="" class="status-publish">
-							<img src="<?php echo (!empty($item['iscategory']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
-						</a>
-					</td>
+
 					<td class="text-right">
 						<div class="btn-group">
 							<a href="<?php echo site_url('articles/backend/catalogues/delete/'.$item['id']).'?redirect='.urlencode(current_url());?>" class="btn btn-default <?php echo ($item['rgt'] - $item['lft'] > 1)?'disabled':'';?>"><span class="fa fa-trash"></span></a>

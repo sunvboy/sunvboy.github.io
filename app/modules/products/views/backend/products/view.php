@@ -34,9 +34,32 @@
                         </div>
                     </h3>
                     <div class="box-tools pull-left">
-                        <span class="gcheckAction pull-left btn btn-default" data-module="products"><i
-                                class="fa fa-trash"></i></span>
+                        <span class="gcheckAction pull-left btn btn-default" data-module="products"><i class="fa fa-trash"></i></span>
+                        <span class="gcheckActionCopy pull-left btn btn-default" data-module="products"><i class="fa fa-edit"></i></span>
+                        <script>
+                            $('.gcheckActionCopy').click(function(){
+                                var modules = $(this).attr('data-module');
+                                var id_checked = []; // Láº¥y id báº£n ghi
+                                $('.checkbox-item:checked').each(function() {
+                                    id_checked.push($(this).val());
+                                });
+                                var formURL = 'products/ajax/products/copy';
+                                $.post(formURL, {
+                                        post: id_checked,module:modules},
+                                    function(data){
+                                        $('#alertModal').modal('toggle');
+                                        var json = JSON.parse(data);
+                                        if(json.error == false){
+                                            $('.message-alert').html(json.message);
 
+                                        }else{
+                                            $('.message-alert').html(json.message);
+                                        }
+                                        window.setTimeout('location.reload()', 2000); //Reloads after three seconds
+                                    });
+                                return false;
+                            });
+                        </script>
                         <form class="pull-left" method="get"
                               action="<?php echo site_url('products/backend/products/view'); ?>">
                             <div class="pull-left" style="width: 200px;margin-right:8px;">
@@ -96,11 +119,8 @@
                                     <th>Vị trí</th>
                                     <th>Xuất bản</th>
 
-<!---->
-                                    <th>Áp dụng VOUCHER</th>
-<!--                                    <th>Trang chủ</th>-->
-<!--                                    <th>Sản phẩm mới</th>-->
-<!--                                    <th>Tình trạng</th>-->
+
+
                                     <th class="text-right">Thao tác</th>
                                 </tr>
                                 <?php foreach ($Listproducts as $key => $item) { ?>
@@ -178,38 +198,6 @@
                                         </td>
 
 
-                                        <td class="hide">
-                                            <a href="<?php echo site_url('products/backend/products/set/psale/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
-                                               title="" class="status-publish">
-                                                <img
-                                                    src="<?php echo ($item['psale'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
-                                                    alt=""/>
-                                            </a>
-                                        </td>
-                                        <td class="hide">
-                                            <a href="<?php echo site_url('products/backend/products/set/highlight/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
-                                               title="" class="status-publish">
-                                                <img
-                                                    src="<?php echo ($item['highlight'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
-                                                    alt=""/>
-                                            </a>
-                                        </td>
-                                        <td class="">
-                                            <a href="<?php echo site_url('products/backend/products/set/ishome/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
-                                               title="" class="status-publish">
-                                                <img
-                                                    src="<?php echo ($item['ishome'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
-                                                    alt=""/>
-                                            </a>
-                                        </td>
-                                        <td class="hide">
-                                            <a href="<?php echo site_url('products/backend/products/set/isfooter/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
-                                               title="" class="status-publish">
-                                                <img
-                                                    src="<?php echo ($item['isfooter'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
-                                                    alt=""/>
-                                            </a>
-                                        </td>
                                         <td class="text-right">
                                             <div class="btn-group">
                                                 <a href="<?php echo site_url('products/backend/products/delete/' . $item['id']) . '?redirect=' . urlencode(current_url()); ?>"

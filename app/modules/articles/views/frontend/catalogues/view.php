@@ -1,80 +1,53 @@
-<div id="main" class="wrapper">
-    <div class="bres">
-        <div class="container">
-            <ul>
-                <li><a href="<?php echo base_url() ?>"><i class="fas fa-home"></i>Trang chủ</a>/</li>
-                <?php foreach ($Breadcrumb as $key => $val) { ?>
-                    <?php
-                    $title = $val['title'];
-                    $href = rewrite_url($val['canonical'], $val['slug'], $val['id'], 'articles_catalogues');
-                    ?>
-                    <li><a href="<?php echo $href ?>"><?php echo $title ?></a></li>
-                <?php } ?>
-            </ul>
-        </div>
-    </div>
-    <div class="banner wow fadeInUp">
-        <div class="container">
-            <div class="banner-img">
+<div class="clear" style="height:20px;"></div>
 
-                <img src="<?php echo $this->fcSystem['banner_banner1'] ?>"
-                     alt="<?php echo $DetailCatalogues['title'] ?>">
+<main id="main">
+    <section id="content">
+        <div id="sanpham">
+            <div class="container">
+                <div class="box">
+                    <div class="thanh_index " data-wow-delay="0.3s"><h2><?php echo $DetailCatalogues['title'] ?></h2></div>
+                    <div class="clear" style="height:20px;"></div>
+                    <div class="newsss">
 
-                <h1 class="title-bn"><?php echo $DetailCatalogues['title'] ?></h1>
-            </div>
-
-        </div>
-
-    </div>
-    <div id="main" class="main-new">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <div class="contet-child">
                         <?php if (isset($ArticlesList) && is_array($ArticlesList) && count($ArticlesList)) { ?>
-                            <?php $i = 0;
-                            foreach ($ArticlesList as $key => $val) {
-                                $i++; ?>
-                                <?php
-                                $title = $val['title'];
-                                $href = rewrite_url($val['canonical'], $val['slug'], $val['id'], 'articles');
-                                $image = getthumb($val['images'], TRUE);
-                                $description = cutnchar(strip_tags($val['description']), 320);
-                                $created = show_time($val['created'], 'd/m/Y');
-                                $view = $val['viewed'];
-                                ?>
-                                <div class="item-new wow fadeInUp">
-                                    <div class="image">
-                                        <a href="<?php echo $href ?>"><img src="<?php echo $image ?>" alt="<?php echo $title ?>"></a>
-                                    </div>
-                                    <div class="nav-image">
-                                        <p class="date"><i class="fas fa-calendar-week"></i><?php echo $created?></p>
+                        <?php $i = 0;
+                        foreach ($ArticlesList as $key => $val) {
+                        $i++; ?>
+                        <?php
+                            $title = $val['title'];
+                            $href = rewrite_url($val['canonical'], $val['slug'], $val['id'], 'articles');
+                            $image = getthumb($val['images'], TRUE);
+                            $description = cutnchar(strip_tags($val['description']), 200);
+                            $created = show_time($val['created'], 'd/m/Y');
+                            $view = $val['viewed'];
+                        ?>
+                        <div class="item_tintuc " >
 
-                                        <h3 class="title"><a href="<?php echo $href ?>"><?php echo $title ?></a></h3>
+                            <a href="<?php echo $href?>"
+                               title="<?php echo $title?>"><img
+                                    src="<?php echo $image?>"
+                                    alt="<?php echo $image ?>" style="height: 146px;width: 214px;object-fit: cover"></a>
 
-                                        <p class="desc"><?php echo $description?></p>
-                                        <a href="<?php echo $href ?>" class="chitiet">Xem chi tiết<i class="fas fa-angle-double-right"></i></a>
+                            <h2><a href="<?php echo $href?>"
+                                   title="<?php echo $title?>"><?php echo $title?></a></h2>
 
-                                        <div class="line"><img src="templates/frontend/resources/images/line.png" alt="<?php echo $title ?>"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            <?php } ?>
+                            <div class="ngayup" style="color:#999"><?php echo $created?></div>
+                            <p><?php echo $description?></p>
+
+                        </div>
+
                         <?php } ?>
-
+                        <?php } ?>
+                        <div align="center">
+                            <div class="paging"></div>
+                        </div>
                     </div>
-                    <nav class="nav-page wow fadeInUp" aria-label="Page navigation navigation-page wow fadeInUp">
-                        <?php echo (isset($PaginationList)) ? $PaginationList : ''; ?>
-
-
-                    </nav>
-                    <div style="clear: both;height: 40px"></div>
-                    <?php echo $this->load->view('homepage/frontend/common/block'); ?>
-
                 </div>
-                <?php echo $this->load->view('homepage/frontend/common/aside') ?>
+                <h1 class="visit_hidden fn org "><?php echo $DetailCatalogues['title'] ?></h1>
 
+                <div class="clear" style="height:20px;"></div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <div class="clear"></div>
+</main>

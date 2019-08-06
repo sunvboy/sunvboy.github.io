@@ -9,7 +9,6 @@ define('FC_ENCRYPTION', '_'.sprintf("%u", crc32(BASE_URL)));
 define('FCSEO', 0);
 define('FCCOMPRESS', 0);
 define('FCSUFFIX', '.html');
-
 define('FC_UPLOAD', '/uploads/images/');
 define('FCDBHOST', 'localhost');
 define('FCDBUSER', 'root');

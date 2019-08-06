@@ -11,11 +11,9 @@ class FrontendContacts_Model extends CI_Model{
 		$data = array(
 			'fullname' => $this->input->post('fullname'),
 			'email' => $this->input->post('email'),
-			'title' => $this->input->post('title'),
+			'address' => $this->input->post('address'),
 			'phone' => $this->input->post('phone'),
 			'message' => $this->input->post('message'),
-//			'address' => $this->input->post('address'),
-//			'city' => $this->input->post('city'),
 			'read' => 0,
 			'publish' => 1,
 			'receiverid' => 1,

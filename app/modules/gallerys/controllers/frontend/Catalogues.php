@@ -74,7 +74,7 @@ class Catalogues extends FC_Controller
             $config['suffix'] = $this->config->item('url_suffix') . (!empty($_SERVER['QUERY_STRING']) ? ('?' . $_SERVER['QUERY_STRING']) : '');
             $config['prefix'] = 'trang-';
             $config['first_url'] = $config['base_url'] . $config['suffix'];
-            $config['per_page'] = 30;
+            $config['per_page'] = 10000;
             $config['uri_segment'] = 2;
             $config['use_page_numbers'] = TRUE;
             $config['full_tag_open'] = '<ul class="pagination pull-right">';

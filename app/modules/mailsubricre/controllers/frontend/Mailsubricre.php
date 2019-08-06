@@ -19,14 +19,9 @@ class Mailsubricre extends FC_Controller{
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('', '&nbsp/&nbsp');
 		$this->form_validation->set_rules('fullname', 'Họ và tên', 'trim|required');
-		$this->form_validation->set_rules('phone', 'Số điện thoại', 'trim|required');
-//		$this->form_validation->set_rules('time', 'Giờ đặt bàn', 'trim|required');
-//		$this->form_validation->set_rules('date', 'Ngày đặt bàn', 'trim|required');
-//		$this->form_validation->set_rules('person', 'Số khách(Người lớn)', 'trim|required');
-//		$this->form_validation->set_rules('child', 'Số khách(Trẻ em)', 'trim|required');
-//		$this->form_validation->set_rules('title', 'Nhà hàng trong hệ thống', 'trim|required');
-
-
+		$this->form_validation->set_rules('email', 'Email', 'trim|required');
+		$this->form_validation->set_rules('phone', 'Điện thoại', 'trim|required');
+		$this->form_validation->set_rules('address', 'Địa chỉ', 'trim|required');
 		if ($this->form_validation->run($this)){
 			$att = '';
 			$data = array(

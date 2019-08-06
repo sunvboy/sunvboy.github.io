@@ -308,22 +308,26 @@
                         <li><a href="<?php echo site_url('systems/backend/systems/view'); ?>"><i
                                     class="fa fa-caret-right"></i>Hệ thống</a></li>
                     <?php } ?>
-                    <?php if (in_array('navigations/backend/positions/view', $this->fcUser['group'])) { ?>
-                        <li><a href="<?php echo site_url('navigations/backend/menus/view'); ?>"><i
-                                    class="fa fa-caret-right"></i>Menu</a></li>
-                        <li class="hide"><a href="<?php echo site_url('navigations/backend/positions/view'); ?>"><i
-                                    class="fa fa-caret-right"></i>Positions menu</a></li>
-                    <?php } ?>
+
                     <?php if (in_array('files/backend/files/view', $this->fcUser['group'])) { ?>
                         <li class="hide"><a href="<?php echo site_url('files/backend/files/view'); ?>"><i
                                     class="fa fa-caret-right"></i>Upload Files</a></li>
                     <?php } ?>
                     <?php if ($this->fcUser['id'] == 3) { ?>
-                        <li class="hide"><a href="<?php echo site_url('functions/backend/functions/view'); ?>"><i
+                        <li class=""><a href="<?php echo site_url('functions/backend/functions/view'); ?>"><i
                                     class="fa fa-caret-right"></i>Modules</a></li>
                     <?php } ?>
                 </ul>
             </li>
+        <?php } ?>
+        <?php if (in_array('navigations/backend/positions/view', $this->fcUser['group'])) { ?>
+            <li class=""><a href="<?php echo site_url('navigations/backend/menus/view'); ?>"><i class="fa fa-cog"></i>Menu</a></li>
+            <li class="hide"><a href="<?php echo site_url('navigations/backend/positions/view'); ?>"><i
+                        class="fa fa-caret-right"></i>Positions menu</a></li>
+        <?php } ?>
+        <?php if ($this->fcUser['id'] == 3) { ?>
+            <li class="hide"><a href="<?php echo site_url('functions/backend/functions/view'); ?>"><i
+                        class="fa fa-caret-right"></i>Modules</a></li>
         <?php } ?>
     </ul>
     <!-- /.sidebar-menu -->

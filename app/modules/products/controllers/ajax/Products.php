@@ -239,6 +239,53 @@ class Products extends FC_Controller
         ));
         die();
     }
+     public function copy()
+    {
+        $error = true;
+        $message = '';
+        $id = $this->input->post('post');
+        if (isset($id) && is_array($id) && count($id)) {
+            foreach ($id as $key => $val) {
+                $DetailProducts = $this->BackendProducts_Model->ReadByField('id', $val);
+                $flag = $this->BackendProducts_Model ->_create(array(
+                    'table' => 'products',
+                    'data' => array(
+                        'title' => $DetailProducts['title'],
+                        'slug' => slug($DetailProducts['title']),
+                        'canonical' => slug($DetailProducts['canonical']),
+                        'cataloguesid' => $DetailProducts['cataloguesid'],
+                        'catalogues' => $DetailProducts['catalogues'],
+                        'images' => $DetailProducts['images'],
+                        'price' => $DetailProducts['price'],
+                        'saleoff' => $DetailProducts['saleoff'],
+                        'albums' => $DetailProducts['albums'],
+                        'order' => $DetailProducts['order'],
+                        'description' => $DetailProducts['description'],
+                        'content' => $DetailProducts['content'],
+                        'meta_title' => $DetailProducts['meta_title'],
+                        'meta_keyword' => $DetailProducts['meta_keyword'],
+                        'meta_description' => $DetailProducts['meta_description'],
+                        'publish' => $DetailProducts['publish'],
+                        'created' => gmdate('Y-m-d H:i:s', time() + 7*3600),
+                        'userid_created' => $DetailProducts['userid_created'],
+                        'alanguage' => $DetailProducts['alanguage'],
+                ),));
+                if ($flag > 0) {
+                    if(!empty($DetailProducts['canonical'])){
+                        $this->BackendRouters_Model->Create($DetailProducts['canonical'], 'products/frontend/products/view', $flag, 'number');
+                    }
+                    $message = 'Thêm mới thành công';
+                }
+            }
+        } else {
+            $message = 'Có lỗi trong quá trình thêm mới bản ghi, vui lòng kiểm tra lại';
+        }
+        echo json_encode(array(
+            'error' => $error,
+            'message' => $message,
+        ));
+        die();
+    }
 
     public function filter()
     {

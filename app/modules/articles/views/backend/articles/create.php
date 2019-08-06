@@ -15,8 +15,8 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab-info" data-toggle="tab">Thông tin cơ bản</a></li>
                         <li><a href="#tab-album" data-toggle="tab">Albums ảnh</a></li>
-                        <li><a href="#tab-album-list" data-toggle="tab">PHỤ HUYNH NÓI VỀ ALES </a></li>
-                        <li><a href="#tab-khoahoc" data-toggle="tab">Khóa học </a></li>
+<!--                        <li><a href="#tab-album-list" data-toggle="tab">PHỤ HUYNH NÓI VỀ ALES </a></li>-->
+<!--                        <li><a href="#tab-khoahoc" data-toggle="tab">Khóa học </a></li>-->
                     </ul>
                     <div class="tab-content">
                         <div class="box-body">
@@ -133,7 +133,7 @@
                                                 <input type="hidden" name="album[images][]"
                                                        value="<?php echo $album['images'][$key]; ?>"/>
 
-                                                <div class="thumb"><img src="<?php echo $album['content'][$key]; ?>"
+                                                <div class="thumb hide"><img src="<?php echo $album['content'][$key]; ?>"
                                                                         class="img-thumbnail img-responsive"/></div>
                                                 <input type="hidden" name="album[content][]"
                                                        value="<?php echo $album['content'][$key]; ?>"/>

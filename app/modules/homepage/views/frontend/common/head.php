@@ -1,16 +1,18 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/fonts/font.css">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/owl.carousel.min.css">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/carousel.css">
-
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/animate.css">
-
-<!-- link mobile  -->
-<link rel="stylesheet" href="templates/frontend/resources/css/demo.css?ver=3.3.0">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/style.css">
-<link rel="stylesheet" type="text/css" href="templates/frontend/resources/css/responsive.css">
-<!-- end link mobile -->
-<script type="text/javascript" src="templates/frontend/resources/js/jquery.min.js"></script>
+<link rel="stylesheet" href="templates/frontend/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="templates/frontend/css/template.css" type="text/css" />
+<link rel="stylesheet" href="templates/frontend/css/nmc.css" type="text/css" />
+<link rel="stylesheet" href="templates/frontend/css/nam.css" type="text/css" />
+<link rel="stylesheet" href="templates/frontend/css/font-awesome.min.css" type="text/css" />
+<link href="templates/frontend/css/divbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="templates/frontend/js/jquery.min.js"></script>
+<script src="templates/frontend/js/divbox.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 1000);
+        });
+    });
+</script>

@@ -29,14 +29,14 @@ class Products extends FC_Controller{
 		// UPdate Feild
 		$this->FrontendProducts_Model->UpdateViewed('id', $DetailProducts['id'], $this->fc_lang);
 		$data['Breadcrumb'] = $this->FrontendProductsCatalogues_Model->Breadcrumb($DetailCatalogues['lft'], $DetailCatalogues['rgt'], $this->fc_lang);
-		$data['TagsList'] = $this->FrontendTags_Model->ReadByModule($id, 'products');
-		$data['idgoc'] = showcatidgoc($DetailCatalogues['id'], $DetailCatalogues['parentid'], 'products');
-		$data['parentid_cat'] = $this->FrontendGallerysCatalogues_Model->ReadAllByField('parentid', $data['idgoc'], $this->fc_lang);
-		$data['products_cat'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
-            'select' => 'id, title, slug, canonical, description, lft, rgt, parentid',
-            'where' => array('trash' => 0,'publish' => 1, 'alanguage' => ''.$this->fc_lang.''),
-            'order_by' => 'order asc, id desc',
-        ));
+//		$data['TagsList'] = $this->FrontendTags_Model->ReadByModule($id, 'products');
+//		$data['idgoc'] = showcatidgoc($DetailCatalogues['id'], $DetailCatalogues['parentid'], 'products');
+//		$data['parentid_cat'] = $this->FrontendGallerysCatalogues_Model->ReadAllByField('parentid', $data['idgoc'], $this->fc_lang);
+//		$data['products_cat'] = $this->FrontendProductsCatalogues_Model->ReadByCondition(array(
+//            'select' => 'id, title, slug, canonical, description, lft, rgt, parentid',
+//            'where' => array('trash' => 0,'publish' => 1, 'alanguage' => ''.$this->fc_lang.''),
+//            'order_by' => 'order asc, id desc',
+//        ));
 		$cataloguesid = $this->FrontendProducts_Model->_get_where(array(
 			'select' => 'cataloguesid',
 			'table' => 'catalogues_relationship',
@@ -55,33 +55,33 @@ class Products extends FC_Controller{
 		), $cataloguesid);
 
 		//sản phẩm vừa xem
-		if(isset($_SESSION['watched'])) {
-			$watched = $this->session->userdata('watched');
-			if(!in_array($id, $watched)){
-				if(count($watched) >= 100) {
-					array_splice($watched, 0, 1);
-				}
-				$watched[] = $id;
-				$this->session->set_userdata('watched',$watched);
-			}
-		} else {
-			$watched = array();
-			$watched[] = $id;
-			$this->session->set_userdata('watched',$watched);
-		}
+//		if(isset($_SESSION['watched'])) {
+//			$watched = $this->session->userdata('watched');
+//			if(!in_array($id, $watched)){
+//				if(count($watched) >= 100) {
+//					array_splice($watched, 0, 1);
+//				}
+//				$watched[] = $id;
+//				$this->session->set_userdata('watched',$watched);
+//			}
+//		} else {
+//			$watched = array();
+//			$watched[] = $id;
+//			$this->session->set_userdata('watched',$watched);
+//		}
 		//echo "<pre>";var_dump($watched);die();
 		//session_destroy();
 		//$this->session->set_userdata($newdata);
 		// print_r($_SESSION['watched']);
 		// get all product watched
-		$productWatched = array();
-		foreach ($watched as $value) {
-			$productWatched[] = $this->FrontendProducts_Model->ReadByField('id', $value, $this->fc_lang );
-		}
-		$data['module'] = 'products';
-		$data['moduleid'] = $DetailProducts['id'];
-		$data['products_attr'] = $this->FrontendProducts_Model->AttributesAllTheTime($id);
-		$data['productWatched'] = $productWatched;
+//		$productWatched = array();
+//		foreach ($watched as $value) {
+//			$productWatched[] = $this->FrontendProducts_Model->ReadByField('id', $value, $this->fc_lang );
+//		}
+//		$data['module'] = 'products';
+//		$data['moduleid'] = $DetailProducts['id'];
+//		$data['products_attr'] = $this->FrontendProducts_Model->AttributesAllTheTime($id);
+//		$data['productWatched'] = $productWatched;
 		//end
 		$data['urlbl'] = rewrite_url($DetailCatalogues['canonical'], $DetailCatalogues['slug'], $DetailCatalogues['id'], 'products_catalogues');
 		$data['meta_title'] = !empty($DetailProducts['meta_title'])?$DetailProducts['meta_title']:$DetailProducts['title'];

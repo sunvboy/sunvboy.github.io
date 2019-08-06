@@ -33,35 +33,20 @@ class Catalogues extends FC_Controller
             'select' => '`pr`.`id`',
             'modules' => 'articles',
         ), $DetailCatalogues, $this->fc_lang);
-        $data['count_cate'] = $config['total_rows'];
-        $data['tagall'] = $this->FrontendTags_Model->ReadByModules('products');
+//        $data['count_cate'] = $config['total_rows'];
+//        $data['tagall'] = $this->FrontendTags_Model->ReadByModules('products');
 
-        $idgoc = showcatidgoc($DetailCatalogues['id'], $DetailCatalogues['parentid'], 'articles');
-        $Cataloguesgoc = $this->FrontendArticlesCatalogues_Model->ReadByField('id', $idgoc, $this->fc_lang);
-        if ($Cataloguesgoc['rgt'] - $Cataloguesgoc['lft'] > 1) {
-            $data['list_child'] = $this->FrontendProductsCatalogues_Model->_get_where(array(
-                'select' => 'id, title, slug, canonical',
-                'table' => 'articles_catalogues',
-                'where' => array('publish' => 1, 'alanguage' => $this->fc_lang, 'trash' => 0, 'lft >=' => $Cataloguesgoc['lft'], 'rgt <=' => $Cataloguesgoc['rgt']),
-            ), TRUE);
-        }
-
-        $data['listcat'] = $this->FrontendArticlesCatalogues_Model->ReadByFieldRow('id,title,slug,canonical', array('parentid' => $DetailCatalogues['id']), $this->fc_lang);
-        if (isset($data['listcat']) && is_array($data['listcat']) && count($data['listcat'])) {
-            if (isset($data['listcat']) && is_array($data['listcat']) && count($data['listcat'])) {
-                foreach ($data['listcat'] as $key => $val) {
-                    $data['listcat'][$key]['post'] = $this->FrontendArticles_Model->_read_condition(array(
-                        'modules' => 'articles',
-                        'select' => '`pr`.`description`, `pr`.`title`, `pr`.`id`, `pr`.`canonical`, `pr`.`slug`',
-                        'where' => '`pr`.`trash` = 0',
-                        'limit' => 10000,
-                        'order_by' => '`pr`.`viewed` desc',
-                        'cataloguesid' => $val['id'],
-                    ));
-                }
-            }
-        }
-        //echo "<pre>";var_dump($data['listcat']);die();
+//        $idgoc = showcatidgoc($DetailCatalogues['id'], $DetailCatalogues['parentid'], 'articles');
+//        $Cataloguesgoc = $this->FrontendArticlesCatalogues_Model->ReadByField('id', $idgoc, $this->fc_lang);
+//        if ($Cataloguesgoc['rgt'] - $Cataloguesgoc['lft'] > 1) {
+//            $data['list_child'] = $this->FrontendProductsCatalogues_Model->_get_where(array(
+//                'select' => 'id, title, slug, canonical',
+//                'table' => 'articles_catalogues',
+//                'where' => array('publish' => 1, 'alanguage' => $this->fc_lang, 'trash' => 0, 'lft >=' => $Cataloguesgoc['lft'], 'rgt <=' => $Cataloguesgoc['rgt']),
+//            ), TRUE);
+//        }
+//
+//
 
         $config['base_url'] = rewrite_url($DetailCatalogues['canonical'], $DetailCatalogues['slug'], $DetailCatalogues['id'], 'articles_catalogues', FALSE, TRUE);
         if ($config['total_rows'] > 0) {
@@ -69,7 +54,7 @@ class Catalogues extends FC_Controller
             $config['suffix'] = $this->config->item('url_suffix') . (!empty($_SERVER['QUERY_STRING']) ? ('?' . $_SERVER['QUERY_STRING']) : '');
             $config['prefix'] = 'trang-';
             $config['first_url'] = $config['base_url'] . $config['suffix'];
-                $config['per_page'] = (($DetailCatalogues['description'] != '') ? 10 : 10);
+                $config['per_page'] = (($DetailCatalogues['description'] != '') ? 100 : 100);
             $config['uri_segment'] = 2;
             $config['use_page_numbers'] = TRUE;
             $config['full_tag_open'] = '<ul class="pull-right pagination">';

@@ -79,10 +79,11 @@
                                     <th>Lượt xem</th>
                                     <th>Vị trí</th>
                                     <th>Xuất bản</th>
-                                    <th>HỌC VIÊN ĐẠT THÀNH TÍCH CAO  </th>
-                                    <th>PHỤ HUYNH NÓI VỀ ALES </th>
-<!--                                    <th>Tin nổi bật</th>-->
-<!--                                    <th>Thống kê</th>-->
+                                    <th>Giới thiệu chủ đầu tư</th>
+                                    <th>KHÔNG GIAN SỐNG LÝ TƯỞNG</th>
+                                    <th>VỊ TRÍ ĐẮT GIÁ</th>
+                                    <th>TIỆN ÍCH VÀNG</th>
+
                                     <th class="text-right">Thao tác</th>
                                 </tr>
                                 <?php foreach ($ListArticles as $key => $item) { ?>
@@ -152,6 +153,14 @@
                                         <td><?php echo $item['viewed']; ?></td>
                                         <td><?php echo form_input('order[' . $item['id'] . ']', $item['order'], 'data-module="articles" data-id="' . $item['id'] . '"  class="form-control sort-order" placeholder="Vị trí" style="width:65px;"'); ?></td>
                                         <td>
+                                            <a href="<?php echo site_url('articles/backend/articles/set/isfooter/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
+                                               title="" class="status-publish">
+                                                <img
+                                                    src="<?php echo ($item['isfooter'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
+                                                    alt=""/>
+                                            </a>
+                                        </td>
+                                        <td>
                                             <a href="<?php echo site_url('articles/backend/articles/set/publish/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
                                                title="" class="status-publish">
                                                 <img
@@ -159,7 +168,7 @@
                                                     alt=""/>
                                             </a>
                                         </td>
-                                        <td class="">
+                                        <td>
                                             <a href="<?php echo site_url('articles/backend/articles/set/ishome/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
                                                title="" class="status-publish">
                                                 <img
@@ -167,7 +176,7 @@
                                                     alt=""/>
                                             </a>
                                         </td>
-                                        <td class="">
+                                        <td>
                                             <a href="<?php echo site_url('articles/backend/articles/set/highlight/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
                                                title="" class="status-publish">
                                                 <img
@@ -175,19 +184,11 @@
                                                     alt=""/>
                                             </a>
                                         </td>
-                                        <td class="hide">
+                                        <td>
                                             <a href="<?php echo site_url('articles/backend/articles/set/isaside/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
                                                title="" class="status-publish">
                                                 <img
                                                     src="<?php echo ($item['isaside'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
-                                                    alt=""/>
-                                            </a>
-                                        </td>
-                                        <td class="hide">
-                                            <a href="<?php echo site_url('articles/backend/articles/set/isfooter/' . $item['id'] . '?redirect=' . urlencode(current_url())); ?>"
-                                               title="" class="status-publish">
-                                                <img
-                                                    src="<?php echo ($item['isfooter'] > 0) ? 'templates/backend/images/publish-check.png' : 'templates/backend/images/publish-deny.png'; ?>"
                                                     alt=""/>
                                             </a>
                                         </td>

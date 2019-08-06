@@ -41,7 +41,7 @@
 					<th>Người sửa</th>
 					<th>Thời gian</th>
 					<th>Xuất bản</th>
-<!--					<th>Chứng chỉ trang chủ</th>-->
+					<th>THư viện ảnh</th>
 <!--					<th>Giải thưởng</th>-->
 					<th class="text-right">Thao tác</th>
 				</tr>
@@ -62,7 +62,7 @@
 							<img src="<?php echo (!empty($item['publish']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
 						</a>
 					</td>
-					<td class="hide">
+					<td class="">
 						<a href="<?php echo site_url('gallerys/backend/catalogues/set/ishome/'.$item['id'].'?redirect='.urlencode(current_url())); ?>" title="" class="status-publish">
 							<img src="<?php echo (!empty($item['ishome']))? 'templates/backend/images/publish-check.png':'templates/backend/images/publish-deny.png'; ?>" alt="" />
 						</a>

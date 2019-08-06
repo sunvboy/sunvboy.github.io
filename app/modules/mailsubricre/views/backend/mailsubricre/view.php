@@ -29,20 +29,25 @@
 				<tr>
 					<th>ID</th>
 					<th>Họ và tên</th>
-					<th>Số điện thoại</th>
 					<th>Email</th>
+					<th>Phone</th>
+					<th>Địa chỉ</th>
+					<th>Nội dung</th>
+					<th>Ngày gửi</th>
 
-					<th>Ghi chú</th>
 
 					<th class="text-center">Thao tác</th>
 				</tr>
 				<?php foreach($listemail as $key => $email){ ?>
 				<tr>
 					<td><?php echo $email['id'];?></td>
+
 					<td class=""><?php echo $email['fullname'];?></td>
-					<td class=""><?php echo $email['phone'];?></td>
 					<td class=""><?php echo $email['email'];?></td>
+					<td class=""><?php echo $email['phone'];?></td>
+					<td class=""><?php echo $email['address'];?></td>
 					<td class=""><?php echo $email['message'];?></td>
+					<td class=""><?php echo $email['created'];?></td>
 
 					<td class="hide">
 						<a href="<?php echo site_url('mailsubricre/backend/mailsubricre/set/publish/'.$email['id'].'?redirect='.urlencode(current_url())); ?>" title="" class="status-publish">

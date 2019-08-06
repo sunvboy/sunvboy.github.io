@@ -82,7 +82,7 @@ class BackendProducts_Model extends FC_Model{
 			$this->db->update($table, $data);
 		}
 	}
-	public function Create($user = '', $catalogues = NULL, $albums = '', $album = '',$album3 = '',$album4 = '', $lang = 'vietnamese'){
+	public function Create($user = '', $catalogues = NULL, $albums = '', $lang = 'vietnamese'){
 		$price = (int)str_replace('.','',$this->input->post('price'));
 		$saleoff = (int)str_replace('.','',$this->input->post('saleoff'));
 		$data = array(
@@ -92,29 +92,16 @@ class BackendProducts_Model extends FC_Model{
 			'cataloguesid' => $this->input->post('cataloguesid'),
 			'catalogues' => json_encode($catalogues),
 			'images' => $this->input->post('images'),
-			'code' => $this->input->post('code'),
 			'price' => $price,
 			'saleoff' => $saleoff,
 			'albums' => json_encode($albums),
-			'album' => json_encode($album),
-			'album3' => json_encode($album3),
-			'album4' => json_encode($album4),
 			'order' => $this->input->post('order'),
 			'description' => $this->input->post('description'),
 			'content' => $this->input->post('content'),
-			'content1' => $this->input->post('content1'),
-			'content2' => $this->input->post('content2'),
-			'content3' => $this->input->post('content3'),
-			'content4' => $this->input->post('content4'),
 			'meta_title' => $this->input->post('meta_title'),
 			'meta_keyword' => $this->input->post('meta_keyword'),
 			'meta_description' => $this->input->post('meta_description'),
 			'publish' => $this->input->post('publish'),
-			'psale' => $this->input->post('psale'),
-			'price_sale' => $this->input->post('price_sale'),
-			'ishome' => $this->input->post('ishome'),
-			'isfooter' => $this->input->post('isfooter'),
-			'highlight' => $this->input->post('highlight'),
 			'created' => gmdate('Y-m-d H:i:s', time() + 7*3600),
 			'userid_created' => $user['id'],
 			'alanguage' => $lang,
@@ -128,7 +115,7 @@ class BackendProducts_Model extends FC_Model{
 		return $result;
 	}
 
-	public function UpdateByPost($field = '', $value = 0, $user = '',  $catalogues = NULL, $albums = '', $album = '',$album3 = '',$album4 = ''){
+	public function UpdateByPost($field = '', $value = 0, $user = '',  $catalogues = NULL, $albums = ''){
 		$price = (int)str_replace('.','',$this->input->post('price'));
 		$saleoff = (int)str_replace('.','',$this->input->post('saleoff'));
 		$data = array(
@@ -138,29 +125,16 @@ class BackendProducts_Model extends FC_Model{
 			'cataloguesid' => $this->input->post('cataloguesid'),
 			'catalogues' => json_encode($catalogues),
 			'images' => $this->input->post('images'),
-			'code' => $this->input->post('code'),
 			'price' => $price,
-			'price_sale' => $this->input->post('price_sale'),
 			'saleoff' => $saleoff,
 			'albums' => json_encode($albums),
-			'album' => json_encode($album),
-			'album3' => json_encode($album3),
-			'album4' => json_encode($album4),
 			'order' => $this->input->post('order'),
 			'description' => $this->input->post('description'),
 			'content' => $this->input->post('content'),
-			'content1' => $this->input->post('content1'),
-			'content2' => $this->input->post('content2'),
-			'content3' => $this->input->post('content3'),
-			'content4' => $this->input->post('content4'),
 			'meta_title' => $this->input->post('meta_title'),
 			'meta_keyword' => $this->input->post('meta_keyword'),
 			'meta_description' => $this->input->post('meta_description'),
-			'highlight' => $this->input->post('highlight'),
 			'publish' => $this->input->post('publish'),
-			'psale' => $this->input->post('psale'),
-			'ishome' => $this->input->post('ishome'),
-			'isfooter' => $this->input->post('isfooter'),
 			'updated' => gmdate('Y-m-d H:i:s', time() + 7*3600),
 			'userid_updated' => $user['id'],
 		);
