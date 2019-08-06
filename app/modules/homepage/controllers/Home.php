@@ -87,6 +87,13 @@ class Home extends FC_Controller
             'limit' => 1,
             'order_by' => 'order asc, id desc',
         ));
+        $data['tintucgioithieu'] = $this->FrontendArticles_Model->ReadByCondition(array(
+            'select' => 'id, title, slug, canonical,description,images,content,albums',
+            'table' => 'articles',
+            'where' => array('ishome' => 1,'publish' => 1, 'trash' => 0, 'alanguage' => $this->fc_lang),
+            'limit' => 1,
+            'order_by' => 'order asc, id desc',
+        ));
         $data['vitridatgia'] = $this->FrontendArticles_Model->ReadByCondition(array(
             'select' => 'id, title, slug, canonical,description,images,content,albums',
             'table' => 'articles',
